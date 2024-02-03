@@ -12,7 +12,13 @@
     <div class="border-gray-700 border my-3"></div>
 
     <!-- Nav Links -->
-    
+      <app-sidebar-menu-item 
+      *ngFor="let route of routes" 
+      [description]="route.data!['description']"
+      [icon]="route.data!['icon']"
+      [path]="route.path!"
+      [title]="route.data!['title']"
+      ></app-sidebar-menu-item>
     <!-- End Nav Links -->
   </nav>
 
