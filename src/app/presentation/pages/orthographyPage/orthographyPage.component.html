@@ -4,15 +4,24 @@
     <div class="grid-gap-y-2">
       <!-- Chat Messages -->
       <app-chat-message
-      text="Escribe aqui el texto que quieres que revise"></app-chat-message>
+      text="Escribe aqui el texto que quieres que revise"/>
       
 
       <app-my-message
       text="Hola mundo"
-      ></app-my-message>
+      />
 
+      <app-typing-loader/>
 
     </div>
   </div>
-  <!-- MessageBox -->
+  <!-- <app-text-message-box 
+    placeholder="Escribe aqui lo que desees"
+    (onMessage)="handleMessage($event)"
+    
+  /> -->
+  <app-text-message-box-file
+    placeholder="Escribe aqui lo que desees"
+    (onMessage)="handleMessageWithFile($event)"
+  />
 </div>
