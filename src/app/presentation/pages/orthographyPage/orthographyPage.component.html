@@ -7,11 +7,19 @@
       text="Escribe aqui el texto que quieres que revise"/>
       
 
-      <app-my-message
-      text="Hola mundo"
-      />
+      @for (message of messages(); track $index) {
+        @if (message.isGpt) {
+          <app-chat-message [text]="message.text"></app-chat-message>
+        } @else {
+          <app-my-message [text]="message.text"></app-my-message>
+        }
+      }
+      
 
-      <app-typing-loader/>
+      @if (isLoading()) {
+        <app-typing-loader/>
+      }
+      
 
     </div>
   </div>
@@ -28,7 +36,7 @@
 
   <app-text-message-box-select
   placeholder="Escribe aqui lo que desees"
-  [options]="[{id: '1', text: '1'}, {id: '2', text: '2'}]"
+  [options]="[{id: '1', text: 'uno'}, {id: '2', text: 'dos'}]"
   (onMessage)="handleMessageWithSelect($event)"
 />
 </div>
